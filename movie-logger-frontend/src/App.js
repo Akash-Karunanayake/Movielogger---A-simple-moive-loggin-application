@@ -5,6 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import ProfilePage from './pages/ProfilePage';
 import Navbar from './components/Navbar';
+import AddMoviePage from './pages/AddMoviePage';
 import ProtectedRoute from './components/ProtectedRoute'
 
 
@@ -26,6 +27,12 @@ function App() {
             <ProfilePage />
           </ProtectedRoute>
         } />
+        <Route path="/add-movie" element={
+        <ProtectedRoute>
+          <AddMoviePage />
+        </ProtectedRoute>
+        } />
+        
         {/* You can add more protected routes for movie management here */}
       </Routes>
     </>

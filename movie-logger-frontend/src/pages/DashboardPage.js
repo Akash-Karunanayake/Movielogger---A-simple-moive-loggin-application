@@ -1,10 +1,12 @@
 // src/pages/DashboardPage.js
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, Box, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Typography, Box, List, ListItem, ListItemText, Button, Stack } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {
   const [movies, setMovies] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -26,7 +28,12 @@ const DashboardPage = () => {
   return (
     <Container>
       <Box sx={{ mt: 4 }}>
-        <Typography variant="h4" gutterBottom>Dashboard</Typography>
+        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+          <Typography variant="h4">Dashboard</Typography>
+          <Button variant="contained" onClick={() => navigate('/add-movie')}>
+            Add Movie
+          </Button>
+        </Stack>
         <Typography variant="h6">Your Movies</Typography>
         <List>
           {movies.map((movie) => (
