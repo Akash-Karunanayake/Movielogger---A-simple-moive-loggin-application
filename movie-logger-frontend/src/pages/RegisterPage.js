@@ -16,11 +16,17 @@ const RegisterPage = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ 
+      ...formData, 
+      [name]: name === 'age' ? Number(value) : value 
+    });
   };
+  
 
   const handleRegister = async () => {
     setError('');
+    console.log("Register payload:", formData);
     try {
       await axios.post('http://localhost:8080/auth/register', formData);
       navigate('/login');
