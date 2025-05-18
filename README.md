@@ -1,2 +1,2 @@
-# movielogger
+# movielogger - just the backend
  
